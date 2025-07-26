@@ -1,46 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Important Projects</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Image Upload - Important Projects</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      text-align: center;
+      padding: 50px;
+    }
+    input[type="file"] {
+      margin: 20px;
+    }
+    img {
+      margin-top: 20px;
+      max-width: 90%;
+      height: auto;
+      border: 2px solid #555;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+  </style>
 </head>
 <body>
+  <h1>Upload an Image</h1>
+  <p>Select an image to preview it below (no upload to server).</p>
+  
+  <input type="file" accept="image/*" onchange="previewImage(event)">
+  <div>
+    <img id="output" src="#" alt="Image preview will appear here" style="display:none;">
+  </div>
 
-  <header>
-    <img src="logo.png" alt="Important Projects Logo" class="logo" />
-    <h1>Important Projects</h1>
-    <p>Unleash your creativity — share your stories, images, videos & ideas!</p>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="upload.html">Upload</a>
-      <a href="stories.html">Stories</a>
-      <a href="announcements.html">Announcements</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
-
-  <main>
-    <section class="intro">
-      <h2>Welcome to Important Projects</h2>
-      <p>This is a platform where creators like you share amazing content: images, stories, videos, and much more!</p>
-    </section>
-
-    <section class="highlight">
-      <h3>🌟 Featured Category</h3>
-      <ul>
-        <li>📸 Amazing Images</li>
-        <li>🎥 Short Videos</li>
-        <li>📝 Creative Stories</li>
-        <li>📢 Announcements</li>
-      </ul>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Important Projects. All rights reserved.</p>
-  </footer>
-
+  <script>
+    function previewImage(event) {
+      const output = document.getElementById('output');
+      output.src = URL.createObjectURL(event.target.files[0]);
+      output.style.display = 'block';
+    }
+  </script>
 </body>
 </html>
